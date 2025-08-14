@@ -1,10 +1,31 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        gradient: "gradient 3s ease infinite",
+        'ping-slow': 'ping 8s cubic-bezier(0, 0, 0.2, 1) infinite',
+         float: 'float 10s ease-in-out infinite',
+      },
+      keyframes: {
+        gradient: {
+          "0%, 100%": {
+            backgroundPosition: "0% 50%",
+          },
+          "50%": {
+            backgroundPosition: "100% 50%",
+          },
+        },
+        float: {
+      '0%, 100%': { transform: 'translateY(0)' },
+      '50%': { transform: 'translateY(-20px)' },
+    }
+      },
+    },
   },
   plugins: [],
 }
