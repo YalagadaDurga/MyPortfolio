@@ -58,8 +58,9 @@ const Experience = () => {
       className="min-h-screen bg-[#0a192f] text-white px-6 py-20 flex flex-col items-center"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.5 }}
+      viewport={{ once: true, amount: 0.1 }}   // ✅ triggers faster on mobile
     >
+
       <h2 className="text-4xl sm:text-5xl font-bold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
         Experience
       </h2>
@@ -67,11 +68,15 @@ const Experience = () => {
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl">
   {experiences.map((exp, index) => (
     <motion.div
-      key={index}
-      custom={index}
-      variants={cardVariants}
-      className="flex flex-col justify-between bg-white/5 border border-white/10 backdrop-blur-md rounded-xl p-6 shadow-md hover:shadow-pink-500/30 hover:scale-[1.03] transition-all"
+    key={index}
+    custom={index}
+    variants={cardVariants}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.1 }}   // 👈 add this
+    className="flex flex-col justify-between bg-white/5 border border-white/10 backdrop-blur-md rounded-xl p-6 shadow-md hover:shadow-pink-500/30 hover:scale-[1.03] transition-all"
     >
+
       <div>
         {/* Logo + Info */}
         <div className="flex items-center gap-4 mb-4">
